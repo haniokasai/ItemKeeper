@@ -28,6 +28,7 @@ public class Main extends PluginBase implements Listener{
 		Player player = event.getEntity();
 		item.put(player.getName(),player.getInventory().getContents());
 		ar.put(player.getName(),player.getInventory().getArmorContents());
+		player.getInventory().clearAll();
 	}
 
 	@EventHandler
