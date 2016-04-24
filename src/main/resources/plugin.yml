@@ -1,0 +1,7 @@
+name: ItemKeeper
+main: com.haniokasai.nukkit.ItemKeeper.Main
+version: 0.0.1
+author: haniokasai
+api: ["1.0.0"]
+description: when you die,you won't lose items.
+website: http://haniokasai.com
