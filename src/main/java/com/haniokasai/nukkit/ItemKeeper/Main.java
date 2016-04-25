@@ -33,11 +33,13 @@ public class Main extends PluginBase implements Listener{
 
 	@EventHandler
 	public void PlayerRespawn(PlayerRespawnEvent event){
+		try{
 		Player player = event.getPlayer();
 		String name = player.getName();
 		player.getInventory().setContents(item.get(name));
 		player.getInventory().setArmorContents(ar.get(name));
 		item.remove(name);
 		ar.remove(name);
+		}
 	}
 }
