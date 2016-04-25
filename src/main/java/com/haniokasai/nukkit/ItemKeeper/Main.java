@@ -40,6 +40,6 @@ public class Main extends PluginBase implements Listener{
 		player.getInventory().setArmorContents(ar.get(name));
 		item.remove(name);
 		ar.remove(name);
-		}
+		}catch{}
 	}
 }
