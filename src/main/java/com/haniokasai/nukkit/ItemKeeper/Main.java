@@ -15,9 +15,6 @@ import cn.nukkit.plugin.PluginBase;
 
 public class Main extends PluginBase implements Listener{
 
-	private static HashMap<String,Map<Integer,Item>> item = new HashMap<String,Map<Integer,Item>>();
-	private static HashMap<String,Item[]> ar = new HashMap<String,Item[]>();
-
 	public void onEnable() {
 		this.getServer().getPluginManager().registerEvents(this, this);
         this.getServer().getLogger().info("[ItemKeeper] Loaded");
@@ -25,21 +22,7 @@ public class Main extends PluginBase implements Listener{
 
 	@EventHandler
 	public void PlayerDeath(PlayerDeathEvent event){
-		Player player = event.getEntity();
-		item.put(player.getName(),player.getInventory().getContents());
-		ar.put(player.getName(),player.getInventory().getArmorContents());
-		player.getInventory().clearAll();
-	}
+                event.setKeepInventory(true);
 
-	@EventHandler
-	public void PlayerRespawn(PlayerRespawnEvent event){
-		try{
-		Player player = event.getPlayer();
-		String name = player.getName();
-		player.getInventory().setContents(item.get(name));
-		player.getInventory().setArmorContents(ar.get(name));
-		item.remove(name);
-		ar.remove(name);
-		}catch(Exception e){}
 	}
 }
